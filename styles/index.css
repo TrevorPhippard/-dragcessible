@@ -1,0 +1,59 @@
+body {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	height:100%;
+	width:100%;
+	color: #424242;
+	background: #E0E0E0;
+    font-family: Merriweather Sans, Helvetica, Roboto, Arial, sans-serif;
+    font-size: .7rem;
+	line-height: 1.5;
+}
+
+#container {
+ 	position: relative;
+    box-sizing: border-box;
+	cursor: pointer;
+	padding:10px;
+	opacity: 0;
+	-webkit-transition: left 0.35s ease-in-out, opacity 0.2s ease-in-out;
+    -moz-transition: left 0.35s ease-in-out, opacity 0.2s ease-in-out;
+    -o-transition: left 0.35s ease-in-out, opacity 0.2s ease-in-out;
+    transition: left 0.35s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+
+
+.big i{
+	font-size: 13px;
+	font-weight: 900;
+}
+
+.check_btn{
+    background: #0277BD;
+	display: inline-block;
+	color: #EEEEEE;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 5px 25px;
+	border-radius: 4px;
+	letter-spacing: .01em;
+	-webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -ms-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+.check_btn:hover{
+    background: #1E88E5;
+	color: #EEEEEE;
+}
+
+.check_btn .material-icons{
+	position: relative;
+    top: 3px;
+    padding-left: 4px;
+    font-size: 16px;  
+}

@@ -1,0 +1,155 @@
+/**-------------------------------------
+* DRAGGABLE
+*-------------------------------------- */
+
+.dragdrop{
+	position: relative;
+	margin: auto;
+	text-align: left;
+	width:600px;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.dragdrop{
+		width:100%;
+	}
+}
+
+
+.dragdrop a:link, 
+.dragdrop a:visited {
+	color: #4FC3F7;
+	text-decoration: underline;
+}
+
+.dragdrop a:hover{
+	text-decoration: none;
+}
+
+
+
+.dragdrop section{
+    vertical-align: middle;
+}
+
+.dragdrop ul {
+	position: relative;
+	list-style-type: none;
+	border-radius: 2px;
+	padding: 5.5px;
+	color: #fff;
+	background: #eeeeee;
+	transition: background  .25s;
+}
+
+.dragdrop li.draggable,
+.dragdrop li.empty {
+	position: relative;
+	padding: 5.5px 50px;
+	margin-bottom:3px;
+	text-align: center;
+	color: #424242;
+	background: #F5F5F5;
+	
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+}
+
+.dragdrop section{
+	margin-right: 100px;
+	display: inline-block;
+}
+
+.dragdrop section:first-of-type{
+	display: inline-block;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+	.dragdrop section{
+		margin-right: 0px;
+		width:100%;
+	}
+	
+	.dragdrop section:first-of-type{
+		width:100%;
+	}
+  }
+
+
+
+  /* -----------------------------------------------*/ 
+
+
+
+
+.dragdrop ul#popup {
+	position: absolute;
+	width: 200px;
+	padding: 0.4em;
+	background: #37474F;
+	color: #CFD8DC;
+	top: 1em;
+	left: 1em;
+	cursor: default;
+	z-index: 40;
+    box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+.dragdrop ul#popup li {
+	text-align: left;
+	margin: 0.3em 0;
+	padding: 0 0.2em;
+}
+
+.dragdrop ul#popup li.focus,
+.dragdrop ul#popup li.hover {
+	background: #1565c0 ;
+	color: #bbdefb;
+}
+
+.dragdrop ul.highlight {
+	background: #90caf9 ;
+	color: #424242;	
+}
+
+.dragdrop li.draggable {
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
+	cursor: move;
+	transition: box-shadow .25s;
+}
+
+.dragdrop ul li.hover{
+	position: relative;
+	background: #fff;
+	color: #424242;	
+}
+
+.dragdrop ul li.focused {
+	position: relative;
+	background: #03A9F4;
+	color: #fff;	
+}
+
+.dragdrop ul li[ aria-grabbed="true"] {
+	-webkit-box-shadow: 0 24px 38px 3px 
+							rgba(0,0,0,0.04), 0 9px 16px 8px 
+							rgba(0,0,0,0.02), 0 11px 15px -7px rgba(0,0,0,0.2);
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,0.04), 0 9px 16px 8px rgba(0,0,0,0.02), 0 11px 15px -7px rgba(0,0,0,0.2);
+}
+
+
+.wrong{
+	background-color: rgb(255, 193, 193) !important;
+}
+
+.correct{
+	background-color: rgb(203, 255, 185) !important;
+}
+
+

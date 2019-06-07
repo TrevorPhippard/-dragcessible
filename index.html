@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+<head>
+	<title>Drag and Drop Example</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="./styles/drag.css" rel="stylesheet">
+	<link href="./styles/index.css" rel="stylesheet">
+
+
+<script src="./scripts/index.js"></script>
+	
+	<script>
+		  
+		var addClear	= element => element.className = "draggable";
+		var addNone		= element => element.className = "draggable empty";
+		var addCorrect	= element => element.className = "draggable correct";
+		var addWrong	= element => element.className = "draggable wrong";
+
+		var checkAssortment = function(n,data){
+
+			n.sections.forEach((n,i,arr)=>{
+
+				var l=document.getElementById(n);
+
+				for(let o of l.children) {
+					n === data[o.innerHTML] 
+									? addCorrect(o) : o.innerHTML == 'None'
+									? addNone(o)    : n !==arr[0] 
+									? addWrong(o)   : addClear(o)
+				}
+			})
+		}
+
+		window.onload = function(){
+
+			document.getElementById('container').style.opacity =1;
+
+			/*-------------------------*
+				TEST:: Comic Drag
+			*-------------------------*/
+
+			var ComicDrag = new Drag('slide1',["Heros", "Marvel", "DC"]);
+				ComicDrag.init();
+
+					
+			var heroInfo = {
+					'Wonder Woman': 'DC',
+					'Superman': 'DC',
+					'Batman': 'DC',
+					'Spiderman': 'Marvel',
+					'Antman': 'Marvel',
+					'Thor': 'Marvel',
+			};
+		
+			document
+			.getElementById("checkAnswer1")
+			.addEventListener("click", function(){ checkAssortment(ComicDrag,heroInfo) }, false);
+
+			/*-------------------------*
+				TEST:: Gods Drag
+			*-------------------------*/
+
+			var GodsDrag = new Drag('slide2',["Gods", "Roman", "Greek"]);
+				GodsDrag.init();
+
+				var godInfo = {
+					'Minerva': 'Roman',
+					'Valcan': 'Roman',
+					'Mars': 'Roman',
+					'Poseidon': 'Greek',
+					'Hermes': 'Greek',
+					'Artemis': 'Greek',
+			};
+
+			document
+			.getElementById("checkAnswer2")
+			.addEventListener("click", function(){ checkAssortment(GodsDrag,godInfo) }, false);
+		
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="slide1">
+				<div class="dragdrop">
+				<h1>Accessible Drag and Drop</h1>
+				<p> <b><i>Tab</i></b> to move between options</p>
+				<p> <b><i>Space</i></b> to open the menu</p>
+				<p> <b><i>arrow keys</i></b> move between menu options</p>	
+				<p> <b><i>Enter</i></b> to confirm choice</p>
+				<p> <b><i>Esc</i></b> if you wish to exit</p>
+				<p> <b><i>Click(for now)</i></b> on the check button to check</p>
+
+					<section>
+						<h2 id="Heros_label">Heros</h2>
+						<ul id="Heros">
+							<li class="draggable">Batman</li>
+							<li class="draggable">Spiderman</li>
+							<li class="draggable">Superman</li>
+							<li class="draggable">Antman</li>
+							<li class="draggable">Thor</li>
+							<li class="draggable">Wonder Woman</li>
+						</ul>
+					</section>
+					<section>
+						<h2 id="Marvel_label">Marvel</h2>
+						<ul id="Marvel">
+							<li class="empty">None</li>
+						</ul>
+
+						<h2 id="DC_label">DC</h2>
+						<ul id="DC">
+							<li class="empty">None</li>
+						</ul>
+					</section>
+					<br/>
+					<div id="checkAnswer1" class="check_btn">
+						Check<span class="material-icons"> &#xe86c;</span>
+					</div>
+				</div>
+		
+		
+
+		</div>
+
+
+		<div id="slide2">
+				<div class="dragdrop">
+					<section>
+						<h2 id="Gods_label">Gods</h2>
+						<ul id="Gods" class="section">
+							<li class="draggable">Minerva</li>
+							<li class="draggable">Poseidon</li>
+							<li class="draggable">Valcan</li>
+							<li class="draggable">Mars</li>
+							<li class="draggable">Hermes</li>
+							<li class="draggable">Artemis</li>
+						</ul>
+					</section>
+					<section>
+						<h2 id="Roman_label">Roman Pantheon</h2>
+						<ul id="Roman" class="section">
+							<li class="empty">None</li>
+						</ul>
+
+						<h2 id="Greek_label">Greek Pantheon</h2>
+						<ul id="Greek" class="section">
+							<li class="empty">None</li>
+						</ul>
+					</section>
+					<br/>
+					<div id="checkAnswer2" class="check_btn">
+						Check<span class="material-icons"> &#xe86c;</span>
+					</div>
+				</div>
+		
+			
+		</div>
+
+	</div>
+	</div>
+
+</body>
+
+</html>
